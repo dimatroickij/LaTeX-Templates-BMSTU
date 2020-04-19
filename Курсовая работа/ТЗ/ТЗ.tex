@@ -1,0 +1,87 @@
+% !TEX program = xelatex
+%----------------------- Преамбула -----------------------
+\documentclass[utf8x, 12pt, oneside, a4paper]{article}
+
+\usepackage{extsizes} % Для добавления в параметры класса документа 14pt
+\usepackage{setspace}
+\singlespacing
+% Для работы с русским языком и шрифтом Times New Roman по-умолчанию
+\usepackage[russian]{babel}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+
+% ГОСТовские настройки для полей
+\usepackage[left=25mm, right=15mm, top=20mm, bottom=20mm]{geometry}
+
+% Дополнительное окружение для подписей
+\usepackage{array}
+\newenvironment{signstabular}[1][1]{
+	\renewcommand*{\arraystretch}{#1}
+	\tabular
+}{
+	\endtabular
+}
+
+% Годные пакеты для обычных действий
+\usepackage{ulem} % Нормальное нижнее подчеркивание
+
+% ---------------------- Документ ----------------------
+\begin{document}
+	\thispagestyle{empty}
+	\begin{center}
+		\fontsize{12pt}{0.3\baselineskip}\selectfont \textbf{Министерство науки и высшего образования Российской Федерации 
+		\\ Федеральное государственное бюджетное образовательное учреждение 
+		\\ высшего образования 
+		\\ <<Московский государственный технический университет имени Н.Э. Баумана
+		\\ (национальный исследовательский университет)>>
+		\\ (МГТУ им. Н.Э. Баумана)}
+		
+		\fontsize{12pt}{0.5\baselineskip}\selectfont
+		\noindent \makebox[\linewidth]{\rule{\textwidth}{4pt}} \makebox[\linewidth]{\rule{\textwidth}{1pt}}
+	\end{center}	
+	
+	\begin{flushright}
+		\fontsize{12pt}{\baselineskip}\selectfont
+		УТВЕРЖДАЮ \hspace*{1.4cm}
+
+		\fontsize{12pt}{\baselineskip}\selectfont
+		Заведующий кафедрой \uline{\hspace*{0.5cm}}\uline{ИУ6}\uline{\hspace*{0.5cm}} 
+		\\ \hfill \textbf{<Должность>} \uline{\hspace*{2.5cm}} \ \uline{А.В. Пролетарский} 
+		\\ <<\uline{\hspace*{1cm}}>> \uline{\hspace*{2.5cm}} 20\ \ \   г.
+	\end{flushright}
+	
+	\vfill
+	
+	
+	\begin{center}
+		\fontsize{14pt}{\baselineskip}\selectfont <НАИМЕНОВАНИЕ ПРОГРАММНОГО ПРОДУКТА>
+	\end{center}
+
+	\center
+	Техническое задание
+
+	\center Листов <Количество>
+
+	\vfill
+
+	\begin{table}[h!]
+			\fontsize{12pt}{0.7\baselineskip}\selectfont
+			\centering
+			\begin{signstabular}[0.7]{p{3.25cm} >  {\centering\arraybackslash}p{4cm} > {\centering\arraybackslash}p{4cm} > {\centering\arraybackslash}p{4cm}}
+				Студент & \uline{\hspace*{4cm}} & \uline{\hspace*{4cm}} & \uline{\hfill \textbf{<И.О. Фамилия>} \hfill} 
+				\\ & \scriptsize (Группа) & \scriptsize (Подпись, дата) & \scriptsize (И.О. Фамилия)
+			\end{signstabular}
+
+			\vspace{\baselineskip}
+
+			\begin{signstabular}[0.7]{p{3.25cm} >  {\centering\arraybackslash}p{4cm} > {\centering\arraybackslash}p{4cm} > {\centering\arraybackslash}p{4cm}}
+				Руководитель & \ & \uline{\hspace*{4cm}} & \uline{\hfill \textbf{<И.О. Фамилия>} \hfill} 
+				\\ & \ & \scriptsize (Подпись, дата) & \scriptsize (И.О. Фамилия)
+			\end{signstabular}
+		\end{table}
+
+	
+		\begin{center}
+			\normalsize \textit{\textbf{<Год>} г.}
+		\end{center}	
+\end{document}
