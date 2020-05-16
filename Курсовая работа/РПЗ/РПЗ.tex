@@ -117,6 +117,8 @@
 \usepackage[figure,table]{totalcount} % Подсчет изображений, таблиц
 \usepackage{rotating} % Поворот изображения вместе с названием
 \usepackage{lastpage} % Для подсчета числа страниц
+\newcounter{numberlisting}
+\setcounter{numberlisting}{1}
 
 % ---------------------- Документ ----------------------
 \begin{document}
@@ -127,7 +129,7 @@
 		\hfill
 		\begin{minipage}{0.85\textwidth}\raggedleft
 			\begin{center}
-				\fontsize{11pt}{0.3\baselineskip}\selectfont 
+				\fontsize{11pt}{0.4\baselineskip}\selectfont 
 				\textbf{Министерство науки и высшего образования Российской Федерации
 				\\ Федеральное государственное бюджетное образовательное учреждение
 				\\ высшего образования
@@ -139,12 +141,12 @@
 		\end{minipage}
 
 		\begin{center}
-			\fontsize{12pt}{0.1\baselineskip}\selectfont
+			\fontsize{11pt}{0.1\baselineskip}\selectfont
 			\noindent\makebox[\linewidth]{\rule{\textwidth}{4pt}} \makebox[\linewidth]{\rule{\textwidth}{1pt}}
 		\end{center}
 
 		\begin{flushleft}
-			\fontsize{11pt}{0.8\baselineskip}\selectfont 
+			\fontsize{11pt}{1\baselineskip}\selectfont 
 			
 			ФАКУЛЬТЕТ \textbf{ИНФОРМАТИКА И СИСТЕМЫ УПРАВЛЕНИЯ}
 
@@ -154,17 +156,14 @@
 		\end{flushleft}
 
 		\begin{center}
+			\hfill
+			\\ \
 			\fontsize{22pt}{\baselineskip}\selectfont
-
 			\textbf{РАСЧЕТНО-ПОЯСНИТЕЛЬНАЯ ЗАПИСКА}
-
 			\fontsize{20pt}{\baselineskip}\selectfont
-
-			\textbf{\textit{К \ \ КУРСОВОЙ \ \  РАБОТЕ}}
-
-			\textbf{\textit{по дисциплине <<XXXXXXXXXXX>>}}
-
-			\textbf{\textit{НА ТЕМУ:}}			
+			\\ \textbf{\textit{К \ \ КУРСОВОЙ \ \  РАБОТЕ}}
+			\\ \textbf{\textit{по дисциплине <<XXXXXXXXXXX>>}}
+			\\ \textbf{\textit{НА ТЕМУ:}}
 			\\ \uline{\hfill}
 			\\ \uline{\hfill}
 			\\ \uline{\hfill}
@@ -189,7 +188,7 @@
 
 		\vfill
 		\begin{center}
-			\normalsize \textit{\textbf{<Год>} г.}
+			\normalsize \textit{<Год> г.}
 		\end{center}
 	\end{titlepage}
 
@@ -226,14 +225,55 @@
 
 	\section{<Раздел>}
 
+	ПРИМЕР НУМЕРОВАННОГО СПИСКА:
+	\begin{enumerate} 
+  		\item первый элемент первого уровня содержит список 
+		\item  второй элемент первого уровня
+	\end{enumerate}
+	Пример ссылки на раздел: Подробная информация в разделе \ref{section1}
+	\\ ПРИМЕР МАРКИРОВАННОГО СПИСКА:
+	\begin{itemize}
+		\item Each list item is ...
+		\item Lists can be nested ...
+			\begin{itemize}
+				\item The maximum ...
+				\item Switching ...
+			\end{itemize}
+		\item And so on.
+	\end{itemize}
+	
+	Листинг \thenumberlisting \ - Код программы
+	\begin{lstlisting}
+		c = x^2
+		print('test listing')
+	\end{lstlisting}
+	\pagebreak
+
+	\section{<Раздел>}  \label{section1}
+
+	\begin{tabular}{ | p{100pt} | r | c | }
+		\hline
+		ИСЗ & Дата запуска & Масса, кг  \\ \hline
+		Спутник-1 & 4 октября 1957 & 83.6 \\
+		Спутник-2 & 3 ноября 1957 & 508.3 \\
+		Эксплорер-1 & 1 февраля 1958 & 21.5 \\
+		\hline
+	\end{tabular}
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.5\linewidth]{1.png}
+		\caption{Тестовый рисунок}
+		\label{fig:mpr}
+	\end{figure}
+	
+	Формула: $c^{2}=a^{2}+b^{2}$
+	\begin{math}
+		c^2 = a^2 + b_1^2
+	\end{math}
 		\pagebreak
-
-	\section{<Раздел>}
-
-		\pagebreak
-
-	\section{<Раздел>}
-
+	
+	\section{123}
 		\pagebreak
 
 	\section*{ЗАКЛЮЧЕНИЕ}
