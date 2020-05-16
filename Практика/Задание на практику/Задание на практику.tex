@@ -1,0 +1,117 @@
+% !TEX program = xelatex
+%----------------------- Преамбула -----------------------
+\documentclass[utf8x, 10pt, oneside, a4paper]{article}
+
+\usepackage{extsizes} % Для добавления в параметры класса документа 14pt
+\usepackage{extsizes}
+\usepackage{setspace}
+\singlespacing
+% Для работы с русским языком и шрифтом Times New Roman по-умолчанию
+\usepackage[russian]{babel}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+
+% ГОСТовские настройки для полей
+\usepackage[left=25mm, right=15mm, top=20mm, bottom=20mm]{geometry}
+
+% Дополнительное окружение для подписей
+\usepackage{array}
+\newenvironment{signstabular}[1][1]{
+	\renewcommand*{\arraystretch}{#1}
+	\tabular
+}{
+	\endtabular
+}
+% Годные пакеты для обычных действий
+\usepackage{ulem} % Нормальное нижнее подчеркивание
+\baselineskip=10pt
+% ---------------------- Документ ----------------------
+\begin{document}
+	\thispagestyle{empty}
+	\begin{center}
+		\textbf{Министерство науки и высшего образования Российской Федерации 
+		\\ Федеральное государственное бюджетное образовательное учреждение 
+		\\ высшего образования 
+		\\ <<Московский государственный технический университет имени Н.Э. Баумана
+		\\ (национальный исследовательский университет)>>
+		\\ (МГТУ им. Н.Э. Баумана)}
+		\fontsize{12pt}{0.15\baselineskip}\selectfont
+		\noindent \makebox[\linewidth]{\rule{\textwidth}{4pt}} \makebox[\linewidth]{\rule{\textwidth}{1pt}}
+	\end{center}	
+	\normalsize
+	\begin{flushright}
+		УТВЕРЖДАЮ \hspace*{1.4cm}
+		\\
+		Заведующий кафедрой \uline{\hspace*{0.5cm}}\uline{ИУ6}\uline{\hspace*{0.5cm}} 
+		\\ \hfill \textbf{<Должность>} \uline{\hspace*{2.5cm}} \ \uline{А.В. Пролетарский} 
+		\\ \hfill
+		\\ <<\uline{\hspace*{1cm}}>> \uline{\hspace*{2.5cm}} 20\ \ \   г. % момент подписания - начало семестра, формат даты: хх.хх.20хх
+	\end{flushright}
+
+	\begin{center}
+		\fontsize{18pt}{\baselineskip}\selectfont \textbf{ЗАДАНИЕ}
+		\\ \fontsize{16pt}{\baselineskip}\selectfont \textbf{на <учебную> / <производственную> практику} % либо одно, либо другое!!!
+	\end{center}
+
+	\normalsize
+
+	\begin{flushleft}
+		по теме  \uline{<Тема>\hfill}
+		\baselineskip=17pt
+		\\ \uline{ \hfill}
+		\\ \uline{ \hfill}
+		\\ \baselineskip=9pt\hfill
+		\\ \baselineskip=10pt Студент группы  \uline{\hspace*{0.5cm}}\uline{Группа <Шифр>}\uline{\hspace*{0.5cm}}
+		\center \baselineskip=7pt \uline{\hfill <ФИО> \hfill} 
+		\\ \fontsize{10pt}{\baselineskip}\selectfont(фамилия, имя, отчество)
+		\baselineskip=15pt
+		 \\Тип практики: \uline{ \hfill} % По учебному плану: Практикум по программированию, Технологическая практика, Производственная практики, Преддипломная практика и т.п.
+		\baselineskip=15pt
+		\\  Название предприятия: \uline{ \hfill} % Для учебной практики: НУК ИУ МГТУ им. Н.Э. Баумана
+		\\ \hfill
+		\\ \textbf{\textit{Техническое задание}} \uline{\hfill}
+		\\ \uline{\hfill}
+		\\ \uline{\hfill}
+		\\ \uline{\hfill}
+		\\ \uline{\hfill}
+		\\ \uline{\hfill}
+		\\ \uline{\hfill}
+	\end{flushleft}
+
+	\begin{flushleft}
+		\baselineskip=14pt
+		\textbf{\textit{Оформление отчёта по практике:}}
+		
+		Расчетно-пояснительная записка на <25-30> листах формата А4. % Обязательно диапазон, например 20-25 или 25-30
+
+		Перечень графического (иллюстративного) материала (чертежи, плакаты, слайды)
+		% Не предусмотрен или  Необходимый иллюстративный графический материал включить в качестве рисунков в расчетно-пояснительную записку
+		\\ \uline{\hfill} \baselineskip=15pt
+		\\ \uline{\hfill}
+		\\ \uline{\hfill}
+	\end{flushleft}
+
+	\begin{flushleft}
+		Дата выдачи задания <<\uline{<День>}>> \uline{<Месяц>} \uline{<Год>} г. % Для распределенных практик обязательно начало семестра, для летних – дата первого дня практики
+	\end{flushleft}
+
+	\begin{table}[h!]
+		\centering
+		\begin{signstabular}[0.7]{p{8.6cm} >{\centering\arraybackslash}p{3.2cm} >{\centering\arraybackslash}p{3.8cm}}
+			\textbf{Руководитель \ практики} & \uline{\hspace*{3.2cm}} & \uline{\hfill <И.О. Фамилия> \hfill} \\
+			\rule{0pt}{0pt} & \fontsize{8pt}{\baselineskip}\selectfont (Подпись, дата) & \fontsize{8pt}{\baselineskip}\selectfont (И.О. Фамилия)
+		%Дата обязательна, до утверждения заведующим кафедрой, формат даты: хх.хх.20хх
+
+		\end{signstabular}
+
+		\begin{signstabular}[0.7]{p{8.6cm} >{\centering\arraybackslash} >{\centering \arraybackslash}p{3.2cm} >{\centering\arraybackslash}p{3.8cm}}
+			\textbf{Студент} & \uline{\hspace*{3.2cm}} & \uline{\hfill <И.О. Фамилия> \hfill} \\
+			\rule{0pt}{0pt} & \fontsize{8pt}{\baselineskip}\selectfont (Подпись, дата) & \fontsize{8pt}{\baselineskip}\selectfont (И.О. Фамилия)
+		\end{signstabular}
+	\end{table}
+
+	\begin{flushleft}
+		\fontsize{11pt}{\baselineskip}\selectfont
+		\uline{Примечание:} Задание оформляется в двух экземплярах -- один выдается студенту, второй хранится на кафедре
+	\end{flushleft}
+\end{document}
