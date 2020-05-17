@@ -1,0 +1,303 @@
+% !TEX program = xelatex
+%----------------------- Преамбула -----------------------
+\documentclass[utf8x, 14pt, oneside, a4paper]{article}
+
+\usepackage{extsizes} % Для добавления в параметры класса документа 14pt
+
+% Для работы с несколькими языками и шрифтом Times New Roman по-умолчанию
+\usepackage[english,russian]{babel}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+
+% ГОСТовские настройки для полей и абзацев
+\usepackage[left=25mm,right=15mm,top=15mm,bottom=10mm]{geometry}
+\usepackage{misccorr}
+\usepackage{indentfirst}
+\usepackage{enumitem}
+
+\setlength{\parindent}{1.25cm}
+\linespread{1.3}
+\setlist{nolistsep} % Отсутствие отступов между элементами \enumerate и \itemize
+
+% Дополнительное окружения для подписей
+\usepackage{array}
+\newenvironment{signstabular}[1][1]{
+	\renewcommand*{\arraystretch}{#1}
+	\tabular
+}{
+	\endtabular
+}
+
+% Переопределение стандартных \section, \subsection, \subsubsection по ГОСТу;
+% Переопределение их отступов до и после для 1.5 интервала во всем документе
+\usepackage{titlesec}
+
+\titleformat{\section}[block]
+{\bfseries\normalsize\filcenter}{\thesection}{1em}{}
+
+\titleformat{\subsection}[hang]
+{\bfseries\normalsize}{\thesubsection}{1em}{}
+\titlespacing\subsection{\parindent}{\parskip}{\parskip}
+
+\titleformat{\subsubsection}[hang]
+{\bfseries\normalsize}{\thesubsubsection}{1em}{}
+\titlespacing\subsubsection{\parindent}{\parskip}{\parskip}
+
+% Работа с изображениями и таблицами; переопределение названий по ГОСТу
+\usepackage{caption}
+\captionsetup[figure]{name={Рисунок},labelsep=endash}
+\captionsetup[table]{singlelinecheck=false, labelsep=endash}
+
+\usepackage{graphicx}
+\usepackage{slashbox} % Диагональное разделение первой ячейки в таблицах
+
+% Цвета для гиперссылок и листингов
+\usepackage{color}
+
+% Гиперссылки \toc с кликабельностью
+\usepackage{hyperref}
+
+\hypersetup{
+	linktoc=all,
+	linkcolor=black,
+	colorlinks=true,
+}
+
+% Листинги
+\setsansfont{Arial}
+\setmonofont{Courier New}
+
+\usepackage{color} % Цвета для гиперссылок и листингов
+\definecolor{comment}{rgb}{0,0.5,0}
+\definecolor{plain}{rgb}{0.2,0.2,0.2}
+\definecolor{string}{rgb}{0.91,0.45,0.32}
+
+\usepackage{listings}
+\lstset{
+	basicstyle=\footnotesize\ttfamily,
+	language=[Sharp]C, % Или другой ваш язык -- см. документацию пакета
+	commentstyle=\color{comment},
+	numbers=left,
+	numberstyle=\tiny\color{plain},
+	numbersep=5pt,
+	tabsize=4,
+	extendedchars=\true,
+	breaklines=true,
+	keywordstyle=\color{blue},
+	frame=b,
+	stringstyle=\ttfamily\color{string}\ttfamily,
+	showspaces=false,
+	showtabs=false,
+	xleftmargin=17pt,
+	framexleftmargin=17pt,
+	framexrightmargin=5pt,
+	framexbottommargin=4pt,
+	showstringspaces=false,
+	inputencoding=utf8x,
+	keepspaces=true
+}
+
+\DeclareCaptionLabelSeparator{line}{\ --\ }
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox[cmyk]{0.43,0.35,0.35,0.01}{\parbox{\textwidth}{\hspace{15pt}#1#2#3}}}
+\captionsetup[lstlisting]{
+	format=listing,
+	labelfont=white,
+	textfont=white,
+	singlelinecheck=false,
+	margin=0pt,
+	font={bf,footnotesize},
+	labelsep=line
+}
+
+
+% Годные пакеты для обычных действий
+\usepackage{ulem} % Нормальное нижнее подчеркивание
+\usepackage{hhline} % Двойная горизонтальная линия в таблицах
+\usepackage[figure,table]{totalcount} % Подсчет изображений, таблиц
+\usepackage{rotating} % Поворот изображения вместе с названием
+\usepackage{lastpage} % Для подсчета числа страниц
+\newcounter{numberlisting}
+\setcounter{numberlisting}{1}
+
+% ---------------------- Документ ----------------------
+\begin{document}
+	\begin{titlepage}
+		\noindent\begin{minipage}{0.05\textwidth}
+			\includegraphics[scale=0.3]{1.png}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.85\textwidth}\raggedleft
+			\begin{center}
+				\fontsize{12pt}{0.4\baselineskip}\selectfont 
+				\textbf{Министерство науки и высшего образования Российской Федерации
+				\\ Федеральное государственное бюджетное образовательное учреждение
+				\\ высшего образования
+				\\ <<Московский государственный технический университет
+				\\ имени Н.Э. Баумана
+				\\ (национальный исследовательский университет)>>
+				\\ (МГТУ им. Н.Э. Баумана)}
+			\end{center}
+		\end{minipage}
+
+		\begin{center}
+			\fontsize{11pt}{0.1\baselineskip}\selectfont
+			\noindent\makebox[\linewidth]{\rule{\textwidth}{4pt}} \makebox[\linewidth]{\rule{\textwidth}{1pt}}
+		\end{center}
+
+		\begin{flushleft}
+			\fontsize{12pt}{\baselineskip}\selectfont 
+			ФАКУЛЬТЕТ \textbf{ИНФОРМАТИКА И СИСТЕМЫ УПРАВЛЕНИЯ}
+
+			КАФЕДРА \textbf{КОМПЬЮТЕРНЫЕ СИСТЕМЫ И СЕТИ (ИУ6)}
+
+			НАПРАВЛЕНИЕ ПОДГОТОВКИ \textbf{09.XX.XX \ Название направления}
+			%бакалавры групп 1-3 и 6 – 09.03.01 Информатика и вычислительная техника;
+			%бакалавры групп 4 и 5 – 09.03.03 Прикладная информатика;
+			%магистры все – 09.04.01 Информатика и вычислительная техника
+
+		\end{flushleft}
+
+		\begin{center}
+			\hfill
+			\\ \
+			\fontsize{22pt}{\baselineskip}\selectfont
+			\textbf{РАСЧЕТНО-ПОЯСНИТЕЛЬНАЯ ЗАПИСКА}
+			\fontsize{20pt}{\baselineskip}\selectfont
+			\\ \textbf{\textit{К НАУЧНО-ИССЛЕДОВАТЕЛЬСКОЙ РАБОТЕ}}
+			\\ \textbf{\textit{НА ТЕМУ:}}
+			%Тема должна начинаться со слов
+			%Анализ... или Сравнительный анализ... (если нет описания эксперимента и его результатов), 
+			%Исследование (если есть эксперименты). Возможно другое название, но аналогичное!!!
+			\\ \uline{\hfill}
+			\\ \uline{\hfill}
+			\\ \uline{\hfill}
+			\\ \uline{\hfill}
+		\end{center}
+		\vfill
+		\begin{table}[h!]
+			\fontsize{12pt}{0.7\baselineskip}\selectfont
+			\centering
+			\begin{signstabular}[0.7]{p{3.25cm} >  {\centering\arraybackslash}p{4cm} > {\centering\arraybackslash}p{4cm} > {\centering\arraybackslash}p{4cm}}
+				Студент & \uline{\hspace*{4cm}} & \uline{\hspace*{4cm}} & \uline{\hfill \textbf{<И.О. Фамилия>} \hfill} 
+				\\ & \scriptsize (Группа) & \scriptsize (Подпись, дата) & \scriptsize (И.О. Фамилия)
+				%дата обязательна, формат даты хх.хх.20хх
+			\end{signstabular}
+
+			\vspace{\baselineskip}
+
+			\begin{signstabular}[0.7]{p{3.25cm} >  {\centering\arraybackslash}p{4cm} > {\centering\arraybackslash}p{4cm} > {\centering\arraybackslash}p{4cm}}
+				Руководитель & \ & \uline{\hspace*{4cm}} & \uline{\hfill \textbf{<И.О. Фамилия>} \hfill} 
+				\\ & \ & \scriptsize (Подпись, дата) & \scriptsize (И.О. Фамилия)
+				%дата обязательна, формат даты хх.хх.20хх
+			\end{signstabular}
+
+			\vspace{\baselineskip}
+			%Если консультанта нет, то строку удалить!
+			\begin{signstabular}[0.7]{p{3.25cm} >  {\centering\arraybackslash}p{4cm} > {\centering\arraybackslash}p{4cm} > {\centering\arraybackslash}p{4cm}}
+				Консультант & \ & \uline{\hspace*{4cm}} & \uline{\hfill \textbf{<И.О. Фамилия>} \hfill} 
+				\\ & \ & \scriptsize (Подпись, дата) & \scriptsize (И.О. Фамилия)
+				%дата обязательна, формат даты хх.хх.20хх
+			\end{signstabular}
+		\end{table}
+
+		\vfill
+		\begin{center}
+			\normalsize \textit{<Год> г.}
+		\end{center}
+	\end{titlepage}
+
+	\normalsize
+	\setcounter{page}{2}
+
+	\pagebreak
+
+	\section*{РЕФЕРАТ}
+		\begin{center}
+			Расчетно-пояснительная записка \pageref{LastPage} с., \totalfigures\ рис., \totaltables\ табл., Х ист., Х прил.
+
+			\textbf{<Ключевые слова>}
+		\end{center}
+
+		\pagebreak
+
+	% Переопределяем название \toc и выводим сам \toc
+	\renewcommand{\contentsname}{\normalsize\bfseries\centering СОДЕРЖАНИЕ}
+	\small
+	\tableofcontents
+	\normalsize
+
+		\pagebreak
+
+	\section*{ПЕРЕЧЕНЬ СОКРАЩЕНИЙ И ОБОЗНАЧЕНИЙ}
+
+		\pagebreak
+
+	\section*{ВВЕДЕНИЕ}
+		\addcontentsline{toc}{section}{ВВЕДЕНИЕ}
+
+		\pagebreak
+
+	\section{<Раздел>}
+
+	ПРИМЕР НУМЕРОВАННОГО СПИСКА:
+	\begin{enumerate} 
+  		\item первый элемент первого уровня содержит список 
+		\item  второй элемент первого уровня
+	\end{enumerate}
+	Пример ссылки на раздел: Подробная информация в разделе \ref{section1}
+	\\ ПРИМЕР МАРКИРОВАННОГО СПИСКА:
+	\begin{itemize}
+		\item Each list item is ...
+		\item Lists can be nested ...
+			\begin{itemize}
+				\item The maximum ...
+				\item Switching ...
+			\end{itemize}
+		\item And so on.
+	\end{itemize}
+	
+	Листинг \thenumberlisting \ - Код программы
+	\begin{lstlisting}
+		c = x^2
+		print('test listing')
+	\end{lstlisting}
+	\pagebreak
+
+	\section{<Раздел>}  \label{section1}
+
+	\begin{tabular}{ | p{100pt} | r | c | }
+		\hline
+		ИСЗ & Дата запуска & Масса, кг  \\ \hline
+		Спутник-1 & 4 октября 1957 & 83.6 \\
+		Спутник-2 & 3 ноября 1957 & 508.3 \\
+		Эксплорер-1 & 1 февраля 1958 & 21.5 \\
+		\hline
+	\end{tabular}
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.5\linewidth]{1.png}
+		\caption{Тестовый рисунок}
+		\label{fig:mpr}
+	\end{figure}
+	
+	Формула: $c^{2}=a^{2}+b^{2}$
+	\begin{math}
+		c^2 = a^2 + b_1^2
+	\end{math}
+		\pagebreak
+	
+	\section{123}
+		\pagebreak
+
+	\section*{ЗАКЛЮЧЕНИЕ}
+		\addcontentsline{toc}{section}{ЗАКЛЮЧЕНИЕ}
+
+		\pagebreak
+
+	\section*{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}
+		\addcontentsline{toc}{section}{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}
+
+		\pagebreak
+\end{document}
