@@ -1,29 +1,7 @@
 % !TEX program = xelatex
 %----------------------- Преамбула -----------------------
 \documentclass[utf8x, 14pt, oneside, a4paper]{article}
-
-\usepackage{extsizes} % Для добавления в параметры класса документа 14pt
-
-% Для работы с несколькими языками и шрифтом Times New Roman по-умолчанию
-\usepackage[english,russian]{babel}
-\usepackage{fontspec}
-\setmainfont{Times New Roman}
-
-% ГОСТовские настройки для полей
-\usepackage[left=25mm,right=15mm,top=20mm,bottom=10mm]{geometry}
-
-% Дополнительное окружения для подписей
-\usepackage{array}
-\newenvironment{signstabular}[1][1]{
-	\renewcommand*{\arraystretch}{#1}
-	\tabular
-}{
-	\endtabular
-}
-
-% Годные пакеты для обычных действий
-\usepackage{ulem} % Нормальное нижнее подчеркивание
-\usepackage{multirow} % Объединение ячеек в таблицах
+\usepackage[left=25mm,right=15mm,top=20mm,bottom=10mm]{templateTaskBMSTU}
 
 % ---------------------- Документ ----------------------
 \begin{document}

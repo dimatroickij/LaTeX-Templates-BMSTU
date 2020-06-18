@@ -1,61 +1,7 @@
 % !TEX program = xelatex
 %----------------------- Преамбула -----------------------
 \documentclass[utf8x, 12pt, oneside, a4paper]{article}
-
-\usepackage{extsizes} % Для добавления в параметры класса документа 14pt
-
-% Для работы с несколькими языками и шрифтом Times New Roman по-умолчанию
-\usepackage[english,russian]{babel}
-\usepackage{fontspec}
-\setmainfont{Times New Roman}
-
-% ГОСТовские настройки для полей и абзацев
-\usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
-\usepackage{misccorr}
-\usepackage{indentfirst}
-\usepackage{enumitem}
-\usepackage{xcolor}
-
-\setlength{\parindent}{1.25cm}
-\linespread{1.3}
-\setlist{nolistsep} % Отсутствие отступов между элементами \enumerate и \itemize
-
-% Дополнительное окружения для подписей
-\usepackage{array}
-\newenvironment{signstabular}[1][1]{
-	\renewcommand*{\arraystretch}{#1}
-	\tabular
-}{
-	\endtabular
-}
-
-% Переопределение стандартных \section, \subsection, \subsubsection по ГОСТу;
-% Переопределение их отступов до и после для 1.5 интервала во всем документе
-\usepackage{titlesec}
-
-\titleformat{\section}[block]
-{\normalsize\filcenter}{\thesection}{1em}{}
-
-\titleformat{\subsection}[hang]
-{\normalsize}{\thesubsection}{1em}{}
-\titlespacing\subsection{\parindent}{\parskip}{\parskip}
-
-\titleformat{\subsubsection}[hang]
-{\normalsize}{\thesubsubsection}{1em}{}
-\titlespacing\subsubsection{\parindent}{\parskip}{\parskip}
-
-% Работа с изображениями и таблицами; переопределение названий по ГОСТу
-\usepackage{caption}
-\captionsetup[table]{singlelinecheck=false, labelsep=endash}
-
-\newcommand\marker[2]{{\fboxsep=0pt\colorbox{#1}{\strut #2}}}
-
-% Годные пакеты для обычных действий
-\usepackage{ulem} % Нормальное нижнее подчеркивание
-\usepackage{hhline} % Двойная горизонтальная линия в таблицах
-\usepackage[figure,table]{totalcount} % Подсчет изображений, таблиц
-\usepackage{rotating} % Поворот изображения вместе с названием
-\usepackage{lastpage} % Для подсчета числа страниц
+\usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{templateReportBMSTU}
 
 % ---------------------- Документ ----------------------
 \begin{document}
