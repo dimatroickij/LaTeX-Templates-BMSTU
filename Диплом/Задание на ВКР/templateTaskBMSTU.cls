@@ -1,7 +1,8 @@
-% Команда для подключения шаблона: \usepackage[left=25mm,right=10mm,top=15mm,bottom=15mm]{templateTaskBMSTU}
+% Команда для подключения шаблона: \documentclass[12pt, left=25mm,right=10mm,top=15mm,bottom=15mm]{templateReportBMSTU}
 
 \NeedsTeXFormat {LaTeX2e}
-\ProvidesPackage  {templateTaskBMSTU} [2020/06/18 Шаблон задания на выполнение работ МГТУ им. Н. Э. Баумана]
+\ProvidesClass{templateTaskBMSTU} [2020/06/18 Шаблон задания на выполнение работ МГТУ им. Н. Э. Баумана]
+\LoadClass[oneside, a4paper]{article}
 
 \RequirePackage{kvoptions}
 

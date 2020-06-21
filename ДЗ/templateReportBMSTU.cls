@@ -1,7 +1,7 @@
-% Команда для подключения шаблона: \usepackage[left=25mm,right=10mm,top=15mm,bottom=15mm]{templateReportBMSTU}
+% Команда для подключения шаблона: \documentclass[12pt, left=25mm,right=10mm,top=15mm,bottom=15mm]{templateReportBMSTU}
 
 \NeedsTeXFormat {LaTeX2e}
-\ProvidesPackage  {templateReportBMSTU} [2020/06/18 Шаблон отчётов МГТУ им. Н. Э. Баумана]
+\ProvidesClass{templateReportBMSTU} [2020/06/18 Шаблон отчётов МГТУ им. Н. Э. Баумана]
 
 \RequirePackage{kvoptions}
 
@@ -11,6 +11,8 @@
 \DeclareStringOption[20mm]{bottom}[20mm] % Нижнее поле
 \DeclareStringOption[python]{language}[python] % Язык для листинга
 \ProcessKeyvalOptions*
+
+\LoadClass[utf8x, oneside, a4paper]{article}
 
 \RequirePackage{extsizes} % Для добавления в параметры класса документа 14pt
 
